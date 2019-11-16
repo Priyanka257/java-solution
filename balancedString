@@ -1,0 +1,28 @@
+
+package assn;
+
+import java.util.Scanner;
+import java.util.Stack;
+public class stringb {
+	static void check(String s) {
+		int len = s.length();
+		          Stack<Character> st = new Stack<Character>();
+		for(int i=0;i<len;i++) {
+			 char c = s.charAt(i);
+			 if(c=='{' || c=='(' ||c=='[') 
+				 st.push(c);
+			 else if(c=='}'&&st.peek()=='{' || c==')' && st.peek()=='(' || c==']' && st.peek()=='[')
+				 st.pop();
+		}
+		if(st.isEmpty())
+		System.out.println("Balanced");
+		else
+			System.out.println("Not Balanced");
+	}
+	public static void main(String[] args) {
+		          Scanner s1 = new Scanner(System.in);
+		String s = s1.next();
+		check(s);
+	}
+}
+
