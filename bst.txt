@@ -1,0 +1,89 @@
+package assn;
+class Node
+{
+    int key;
+    Node left,right;
+    public Node(int key)
+    {
+        this.key=key;
+        left=right=null;
+    }
+}
+public class bst {
+    Node preNode=null;
+
+Node root;
+bst()
+{
+    root=null;
+}/*
+void insert(int key)
+{
+    root=insertrec(root,key);
+}
+node insertrec(node root,int key)
+{
+    if(root==null)
+    {
+        root=new node(key);
+    return root;
+    }
+    //otherwise recur down the tree
+if(key<root.key)
+    root.left=insertrec(root.left,key);
+else if(key>root.key)
+    root.right=insertrec(root.right,key);
+            
+return root;
+}*/
+boolean isBST1(Node root) {
+		if (root != null) {
+			if (!isBST1(root.left))
+				return false;
+			if (preNode != null && preNode.key >= root.key) {
+				return false;
+			}
+			preNode = root;
+			return isBST1(root.right);
+		}
+		return true;
+	}
+/*void inorder()
+{
+    inorderrec(root);
+}*/
+void inorder(Node root)
+{
+    if(root!=null)
+    {
+        inorder(root.left);
+    System.out.println(root.key);
+    inorder(root.right);
+}}      
+public static void main(String[] args) {
+        bst tree=new bst();
+      /*  tree.insert(50);
+        tree.insert(30);
+        tree.insert(20);
+        tree.insert(40); 
+        tree.insert(70);
+        tree.insert(60);
+        tree.insert(80);*/
+        Node root = new Node(20);
+		root.left = new Node(10);
+		root.right = new Node(30);
+		root.left.left = new Node(5);
+		root.left.right = new Node(15);
+		root.right.left = new Node(25);
+		root.right.right = new Node(35);
+		System.out.println("Tree is ");
+		tree.inorder(root);
+        //tree.inorder();
+        System.out.println();
+		System.out.println(" Tree is BST  : " + tree.isBST1(root));
+}
+   
+
+}
+    
+
