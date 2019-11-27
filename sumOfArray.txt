@@ -1,0 +1,49 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package assn;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author priyanka
+ */
+public class sumOfArray {
+    public static void main(String[] args)
+	{
+		 Scanner sc=new Scanner(System.in);
+		System.out.println("Enter number of elements of first array");
+		int n=sc.nextInt();
+		System.out.println("Enter numer of elements of second array");
+		int n1=sc.nextInt();
+		System.out.println("Enter Number");
+		int sum=sc.nextInt();
+		int a[]=new int[n];
+		int b[]=new int[n1];
+		System.out.println("Enter Elements of first array");
+		for(int i=0;i<n;i++)
+		{
+			a[i]=sc.nextInt();
+		}
+		System.out.println("Enter Elements of second array");
+		for(int i=0;i<n1;i++)
+		{
+			b[i]=sc.nextInt();
+		}
+
+		for(int i=0;i<n;i++)
+		{
+			for(int j=0;j<n1;j++)
+			{
+				if(a[i]+b[j]==sum)
+				{
+					System.out.println(a[i]+" , "+b[j]);
+				}
+			}
+		}
+
+	}
+}
